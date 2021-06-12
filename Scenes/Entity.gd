@@ -1,5 +1,7 @@
 extends Node2D
 
+export (bool) var auto_rotate = true
+
 export (float) var hp = 50
 export (float) var dmg = 1
 
@@ -16,7 +18,8 @@ func impulse(target_pos, strength):
 func _physics_process(delta):
 	velocity += acceleration * delta
 	get_parent().position += velocity * delta
-	get_parent().rotation = velocity.angle()
+	if (auto_rotate):
+		get_parent().rotation = velocity.angle()
 	
 	acceleration *= damping
 	velocity *= friction
