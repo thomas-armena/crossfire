@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Players/Player/Player.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 290.279, 294.611 )
+
+[node name="Player2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 623.882, 305.442 )
+color = Color( 0, 0.0862745, 1, 1 )
+move_right_action = "p2_move_right"
+move_left_action = "p2_move_left"
+move_down_action = "p2_move_down"
+move_up_action = "p2_move_up"
