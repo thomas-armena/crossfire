@@ -9,6 +9,7 @@
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 290.279, 294.611 )
+target_player_path = NodePath("../Player2")
 
 [node name="Player2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 623.882, 305.442 )
@@ -17,6 +18,8 @@ move_right_action = "p2_move_right"
 move_left_action = "p2_move_left"
 move_down_action = "p2_move_down"
 move_up_action = "p2_move_up"
+shoot_action = "p2_shoot"
+target_player_path = NodePath("../Player1")
 
 [node name="EnemyBasic" parent="." instance=ExtResource( 2 )]
 
