@@ -15,12 +15,15 @@ script = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="Entity" parent="." instance=ExtResource( 2 )]
+auto_rotate = false
 damping = Vector2( 0.9, 0.9 )
 
 [node name="Circle" parent="." instance=ExtResource( 1 )]
 
-[node name="LeftEye" parent="." instance=ExtResource( 4 )]
-position = Vector2( -16, 0 )
+[node name="Face" type="Node2D" parent="."]
 
-[node name="RightEye" parent="." instance=ExtResource( 4 )]
+[node name="RightEye" parent="Face" instance=ExtResource( 4 )]
 position = Vector2( 16, 0 )
+
+[node name="LeftEye" parent="Face" instance=ExtResource( 4 )]
+position = Vector2( -16, 0 )

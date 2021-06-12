@@ -12,7 +12,12 @@ var speed = 500
 var BULLET = preload("res://Scenes/Bullet/Bullet.tscn")
 var target_player
 
+var face_sway_counter = 0
+
 onready var entity = get_node("Entity")
+onready var face = get_node("Face")
+onready var left_eye = get_node("Face/LeftEye")
+onready var right_eye = get_node("Face/RightEye")
 
 func _ready():
 	var circle = get_node("Circle")
@@ -32,8 +37,19 @@ func move():
 	entity.impulse(move_vector+position, speed)
 
 func _process(delta):
+	sway_face()
+	set_look_direction()
 	if Input.is_action_just_pressed(shoot_action):
 		shoot()
+		
+func sway_face():
+	face_sway_counter += entity.velocity.length()/1000
+	face.rotation = cos(face_sway_counter)/5
+	
+func set_look_direction():
+	var vector = -(global_position - target_player.global_position).normalized()
+	left_eye.target_look_direction = vector.angle()
+	right_eye.target_look_direction = vector.angle()
 		
 func shoot():
 	var bullet = BULLET.instance()
