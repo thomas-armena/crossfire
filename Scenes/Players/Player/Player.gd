@@ -38,7 +38,9 @@ func _process(delta):
 		
 func shoot():
 	var bullet = BULLET.instance()
-	bullet.direction = PI+(global_position - target_player.global_position).angle()
-	print(bullet.direction)
+	var vector = (global_position - target_player.global_position).normalized()
+	bullet.direction = PI+vector.angle()
+	entity.impulse(vector+position, 5000)
+
 	bullet.position = position
 	get_tree().get_root().add_child(bullet)
