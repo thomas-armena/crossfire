@@ -1,10 +1,9 @@
 extends KinematicBody2D
 
-
-export (NodePath) var target_player;
+export (NodePath) var target_player_path;
 
 onready var entity = get_node("Entity")
-onready var target = get_node(target_player)
+onready var target_player = get_node(target_player_path)
 onready var type = "enemy"
 
 export (float) var speed = 30000 
@@ -18,14 +17,16 @@ func _ready():
 	dash_timer.start(dash_time)
 	
 func _physics_process(delta):
-	if (!target):
+	target_player = get_node(target_player_path)
+	if (!target_player):
 		return
-	look_at(target.position)
+	look_at(target_player.position)
 
 func _on_dash_timeout():
-	if (!target):
+	target_player = get_node(target_player_path)
+	if (!target_player):
 		return
-	entity.impulse(target.position, speed)
+	entity.impulse(target_player.position, speed)
 	
 func move(velocity):
 	move_and_collide(velocity)

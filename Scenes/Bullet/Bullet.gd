@@ -12,6 +12,7 @@ onready var bullet_trail = BULLET_TRAIL.instance()
 onready var circle = get_node("Circle")
 
 func _ready():
+	print("BULLET")
 	bullet_trail.bullet = self
 	get_tree().get_current_scene().add_child(bullet_trail)
 	

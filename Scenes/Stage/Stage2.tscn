@@ -1,16 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Players/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Enemies/EnemyBasic.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Enemies/EnemyDash.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Camera/CameraController.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Interface/Score/Score.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Camera/Camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Grid/Grid.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Scanline/Scanline.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Wall/Wall.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Stage/EnemySpawner.gd" type="Script" id=11]
 
-[node name="Node2D" type="Node2D"]
+[node name="MainScene" type="Node2D"]
 
 [node name="Grid" parent="." instance=ExtResource( 7 )]
 position = Vector2( -500, -500 )
@@ -21,13 +20,11 @@ height = 5000.0
 cell_width = 256.0
 cell_height = 256.0
 
-[node name="EnemyBasic3" parent="." instance=ExtResource( 2 )]
-
 [node name="Player1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 203.403, 436.579 )
 collision_mask = 3
 is_mouse_controlled = false
-target_player_path = NodePath("../Player2")
+target_player_path = NodePath("../../MainScene/Player2")
 
 [node name="Player2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1386.03, 440.498 )
@@ -38,12 +35,7 @@ move_left_action = "p2_move_left"
 move_down_action = "p2_move_down"
 move_up_action = "p2_move_up"
 shoot_action = "p2_shoot"
-target_player_path = NodePath("../Player1")
-
-[node name="EnemyBasic" parent="." instance=ExtResource( 2 )]
-
-[node name="EnemyChase" parent="." instance=ExtResource( 3 )]
-target_player = NodePath("../Player1")
+target_player_path = NodePath("../../MainScene/Player1")
 
 [node name="Wall" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1180.83, -1008.02 )
@@ -65,8 +57,8 @@ scale = Vector2( 150, 100 )
 
 [node name="Camera" parent="." instance=ExtResource( 6 )]
 script = ExtResource( 4 )
-player1_path = NodePath("../Player1")
-player2_path = NodePath("../Player2")
+player1_path = NodePath("../../MainScene/Player1")
+player2_path = NodePath("../../MainScene/Player2")
 
 [node name="Pooplayer" type="CanvasLayer" parent="Camera"]
 
@@ -84,3 +76,35 @@ __meta__ = {
 position = Vector2( 25, 25 )
 
 [node name="Scanline" parent="Camera" instance=ExtResource( 8 )]
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource( 11 )
+player1_path = NodePath("../Player1")
+player2_path = NodePath("../Player2")
+
+[node name="SpawnPoint1" type="Position2D" parent="EnemySpawner"]
+position = Vector2( 678.822, 533.158 )
+
+[node name="SpawnPoint2" type="Position2D" parent="EnemySpawner"]
+position = Vector2( 1001.26, 526.087 )
+
+[node name="SpawnPoint3" type="Position2D" parent="EnemySpawner"]
+position = Vector2( 53.7401, 45.2548 )
+
+[node name="SpawnPoint4" type="Position2D" parent="EnemySpawner"]
+position = Vector2( 86.267, 750.947 )
+
+[node name="SpawnPoint5" type="Position2D" parent="EnemySpawner"]
+position = Vector2( 1453.81, 739.634 )
+
+[node name="SpawnPoint6" type="Position2D" parent="EnemySpawner"]
+position = Vector2( 1467.95, 70.7107 )
+
+[node name="SpawnPoint7" type="Position2D" parent="EnemySpawner"]
+position = Vector2( 663.266, 212.132 )
+
+[node name="SpawnPoint8" type="Position2D" parent="EnemySpawner"]
+position = Vector2( 817.415, 346.482 )
+
+[node name="SpawnPoint9" type="Position2D" parent="EnemySpawner"]
+position = Vector2( 954.594, 216.375 )
