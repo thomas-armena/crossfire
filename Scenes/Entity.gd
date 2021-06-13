@@ -2,6 +2,8 @@ extends Node2D
 
 onready var game_state = get_node("/root/GameState")
 
+onready var BULLET_IMPACT = preload("res://Scenes/Bullet/Impact/Impact.tscn")
+
 export (bool) var auto_rotate = true
 export (bool) var wall = false
 
