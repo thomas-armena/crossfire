@@ -10,7 +10,6 @@ export (NodePath) var target_player_path
 
 var speed = 500
 var BULLET = preload("res://Scenes/Bullet/Bullet.tscn")
-var target_player
 
 var face_sway_counter = 0
 
@@ -18,11 +17,11 @@ onready var entity = get_node("Entity")
 onready var face = get_node("Face")
 onready var left_eye = get_node("Face/LeftEye")
 onready var right_eye = get_node("Face/RightEye")
+onready var target_player = get_node(target_player_path)
 
 func _ready():
 	var circle = get_node("Circle")
 	circle.color = color
-	target_player = get_node(target_player_path)
 	
 func _physics_process(delta):
 	move()
@@ -47,11 +46,13 @@ func sway_face():
 	face.rotation = cos(face_sway_counter)/5
 	
 func set_look_direction():
+	if target_player == null: return
 	var vector = (target_player.global_position - global_position).normalized()
 	left_eye.target_look_direction = vector.angle()
 	right_eye.target_look_direction = vector.angle()
 		
 func shoot():
+	if target_player == null: return 
 	var bullet = BULLET.instance()
 	var vector = (target_player.global_position - global_position).normalized()
 	bullet.direction = vector.angle()
