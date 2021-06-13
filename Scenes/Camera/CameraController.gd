@@ -17,4 +17,5 @@ func _process(delta):
 	if distance < 600:
 		zoom = Vector2(1, 1)
 	else:
-		zoom = Vector2(distance/600, distance/600)
+		var new_zoom = min(1.5, distance/600)
+		zoom = Vector2(new_zoom, new_zoom)
