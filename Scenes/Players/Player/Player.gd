@@ -28,9 +28,9 @@ func _ready():
 	circle.color = color
 	
 func _physics_process(delta):
-	move()
+	input()
 	
-func move():
+func input():
 	var move_vector = Vector2()
 	if Input.is_mouse_button_pressed(1) and is_mouse_controlled:
 		move_vector = (get_global_mouse_position() - global_position).normalized()
@@ -73,6 +73,9 @@ func handle_damage(amount):
 	game_state.health = max(0, game_state.health - amount)
 	if game_state.health <= 0 and !god_mode: 
 		get_tree().change_scene("res://Scenes/GameOver/GameOver.tscn")
+
+func move(velocity):
+	move_and_collide(velocity)
 
 func handle_death():
 	pass

@@ -19,6 +19,10 @@ func update_behaviour(delta):
 		target = Vector2(rng.randf_range(0, view_width), rng.randf_range(0, view_height))
 		
 	entity.impulse(target, speed)
+	
+func move(velocity):
+	move_and_collide(velocity)
 
 func _physics_process(delta):
 	update_behaviour(delta)
+

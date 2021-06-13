@@ -25,3 +25,6 @@ func _on_dash_timeout():
 	if (!target):
 		return
 	entity.impulse(target.position, speed)
+	
+func move(velocity):
+	move_and_collide(velocity)

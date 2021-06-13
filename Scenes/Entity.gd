@@ -30,7 +30,7 @@ func damage(amount):
 
 func _physics_process(delta):
 	velocity += acceleration * delta
-	get_parent().position += velocity * delta
+	get_parent().move(velocity * delta)
 	if (auto_rotate):
 		get_parent().rotation = velocity.angle()
 	
