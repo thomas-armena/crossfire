@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var game_state = get_node("/root/GameState")
+
 export (bool) var auto_rotate = true
 
 export (float) var hp = 50
@@ -20,6 +22,10 @@ func impulse_by_angle(angle, strength):
 	acceleration += direction.normalized() * strength
 	
 func damage(amount):
+	var parent = get_parent()
+	if parent.has_method("handle_damage"):
+		parent.handle_damage(amount)
+		return 
 	hp = max(0, hp-amount)
 
 func _physics_process(delta):
@@ -32,4 +38,9 @@ func _physics_process(delta):
 	velocity *= friction
 	
 func _process(delta):
-	if hp <= 0: get_parent().queue_free()
+	if hp <= 0: 
+		var parent = get_parent()
+		if parent.has_method("handle_death"): parent.handle_death()
+		else: # Assuming this is an enemy
+			game_state.score += 1
+			parent.queue_free()
