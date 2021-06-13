@@ -1,11 +1,22 @@
 extends KinematicBody2D
 
+var BULLET_TRAIL = preload("res://Scenes/Bullet/Trail/Trail.tscn")
+
 export var speed = 10
 export var direction = 0
 export var damage = 20
+export var color = Color(1,1,1)
+
+onready var bullet_trail = BULLET_TRAIL.instance()
+onready var circle = get_node("Circle")
 
 func _ready():
-	pass # Replace with function body.
+	bullet_trail.bullet = self
+	get_tree().get_root().add_child(bullet_trail)
+	
+func set_color(new_color):
+	circle.set_color(new_color)
+	bullet_trail.set_color(new_color)
 	
 func _physics_process(delta):
 	var dir = PI
@@ -14,10 +25,13 @@ func _physics_process(delta):
 	if collision: handle_collision(collision)
 	
 func handle_collision(collision):
-	queue_free()
-	
+	die()
 	collision.collider.entity.impulse_by_angle(direction,10000)
 	collision.collider.entity.damage(20)
 
 func _on_DeathTimer_timeout():
+	die()
+	
+func die():
+	bullet_trail.stop()
 	queue_free()

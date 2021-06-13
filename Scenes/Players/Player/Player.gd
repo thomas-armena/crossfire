@@ -61,7 +61,7 @@ func shoot():
 	var bullet = BULLET.instance()
 	var vector = (target_player.global_position - global_position).normalized()
 	bullet.direction = vector.angle()
-
 	bullet.position = position + vector*(32 + 16)
 	get_tree().get_root().add_child(bullet)
+	bullet.set_color(color)
 	entity.impulse(position-vector, 5000)
