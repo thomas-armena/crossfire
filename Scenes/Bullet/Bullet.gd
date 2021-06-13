@@ -10,11 +10,13 @@ export var color = Color(1,1,1)
 
 onready var bullet_trail = BULLET_TRAIL.instance()
 onready var circle = get_node("Circle")
+onready var shoot_impact_sound = get_node("ShootImpact")
 
 func _ready():
 	print("BULLET")
 	bullet_trail.bullet = self
 	get_tree().get_current_scene().add_child(bullet_trail)
+
 	
 func set_color(new_color):
 	color = new_color
@@ -41,4 +43,5 @@ func die():
 	get_tree().get_current_scene().add_child(impact)
 	impact.set_color(color)
 	impact.position = position
+	impact.play_sound()
 	queue_free()

@@ -23,6 +23,7 @@ onready var right_eye = get_node("Face/RightEye")
 onready var target_player = get_node(target_player_path)
 onready var game_state = get_node("/root/GameState")
 onready var hit_cooldown = get_node("HitCooldown")
+onready var audio_player = get_node(("AudioPlayer"))
 
 var in_hit_cooldown = false
 
@@ -64,6 +65,7 @@ func set_look_direction():
 		
 func shoot():
 	if target_player == null: return 
+	audio_player.play()
 	var bullet = BULLET.instance()
 	var vector = (target_player.global_position - global_position).normalized()
 	bullet.direction = vector.angle()
