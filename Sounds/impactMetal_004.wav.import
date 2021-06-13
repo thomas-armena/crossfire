@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/impactMetal_004.wav-971fead7552d73b6d731012e50715763.sample"
+
+[deps]
+
+source_file="res://Sounds/impactMetal_004.wav"
+dest_files=[ "res://.import/impactMetal_004.wav-971fead7552d73b6d731012e50715763.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

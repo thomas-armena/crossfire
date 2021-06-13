@@ -2,6 +2,7 @@ extends Node2D
 
 
 onready var circle = get_node("Circle")
+onready var sound = get_node("AudioStreamPlayer2D")
 
 func _process(delta):
 	circle.scale.x += delta
@@ -10,3 +11,7 @@ func _process(delta):
 	
 func set_color(new_color):
 	circle.set_color(new_color)
+	
+
+func play_sound():
+	sound.play()
