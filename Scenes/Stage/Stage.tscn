@@ -7,6 +7,7 @@
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 294.611, 303.276 )
+is_mouse_controlled = false
 target_player_path = NodePath("../Player2")
 
 [node name="Player2" parent="." instance=ExtResource( 1 )]

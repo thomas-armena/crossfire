@@ -5,6 +5,7 @@ export var move_right_action := "p1_move_right"
 export var move_left_action := "p1_move_left"
 export var move_down_action := "p1_move_down"
 export var move_up_action := "p1_move_up"
+export var is_mouse_controlled := true
 export var shoot_action := "p1_shoot"
 export (NodePath) var target_player_path
 
@@ -28,12 +29,16 @@ func _physics_process(delta):
 	
 func move():
 	var move_vector = Vector2()
+	if Input.is_mouse_button_pressed(1) and is_mouse_controlled:
+		move_vector = (get_global_mouse_position() - global_position).normalized()
+		
 	if Input.is_action_pressed(move_right_action):	move_vector.x += 1
 	if Input.is_action_pressed(move_left_action): 	move_vector.x -= 1
 	if Input.is_action_pressed(move_down_action): 	move_vector.y += 1
 	if Input.is_action_pressed(move_up_action):		move_vector.y -= 1
 	move_vector = move_vector.normalized()
 	entity.impulse(move_vector+position, speed)
+	
 
 func _process(delta):
 	sway_face()
