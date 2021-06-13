@@ -24,13 +24,13 @@ cell_height = 256.0
 [node name="EnemyBasic3" parent="." instance=ExtResource( 2 )]
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 290.279, 294.611 )
+position = Vector2( 203.403, 436.579 )
 collision_mask = 3
 is_mouse_controlled = false
 target_player_path = NodePath("../Player2")
 
 [node name="Player2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 623.882, 305.442 )
+position = Vector2( 1386.03, 440.498 )
 collision_mask = 3
 color = Color( 0, 0.0862745, 1, 1 )
 move_right_action = "p2_move_right"
