@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Players/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Enemies/EnemyBasic.tscn" type="PackedScene" id=2]
@@ -6,8 +6,18 @@
 [ext_resource path="res://Scenes/Camera/CameraController.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Interface/Score/Score.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Camera/Camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Grid/Grid.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Grid" parent="." instance=ExtResource( 7 )]
+position = Vector2( -500, -500 )
+scale = Vector2( 1.00073, 0.994099 )
+color = Color( 0.505882, 0.913725, 0.623529, 1 )
+width = 5000.0
+height = 5000.0
+cell_width = 256.0
+cell_height = 256.0
 
 [node name="EnemyBasic3" parent="." instance=ExtResource( 2 )]
 
