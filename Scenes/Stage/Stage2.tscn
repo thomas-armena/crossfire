@@ -27,7 +27,7 @@ uniform vec4 corner_color : hint_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform bool show_vignette = true;
 uniform float vignette_opacity : hint_range(0.0, 1.0, 0.01) = 0.2;
 uniform bool show_horizontal_scan_lines = true;
-uniform float horizontal_scan_lines_amount : hint_range(0.0, 180.0, 0.1) = 180.0;
+uniform float horizontal_scan_lines_amount : hint_range(0.0, 600.0, 0.1) = 600.0;
 uniform float horizontal_scan_lines_opacity : hint_range(0.0, 1.0, 0.01) = 1.0;
 uniform bool show_vertical_scan_lines = false;
 uniform float vertical_scan_lines_amount : hint_range(0.0, 320.0, 0.1) = 320.0;
@@ -93,7 +93,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/screen_size = Vector2( 320, 180 )
+shader_param/screen_size = Vector2( 1024, 600 )
 shader_param/show_curvature = true
 shader_param/curvature_x_amount = 7.79
 shader_param/curvature_y_amount = 5.29
@@ -101,7 +101,7 @@ shader_param/corner_color = Color( 0, 0, 0, 1 )
 shader_param/show_vignette = true
 shader_param/vignette_opacity = 0.2
 shader_param/show_horizontal_scan_lines = true
-shader_param/horizontal_scan_lines_amount = 180.0
+shader_param/horizontal_scan_lines_amount = 600.0
 shader_param/horizontal_scan_lines_opacity = 1.0
 shader_param/show_vertical_scan_lines = false
 shader_param/vertical_scan_lines_amount = 320.0
@@ -145,9 +145,10 @@ player2_path = NodePath("../Player2")
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
 material = SubResource( 2 )
-margin_left = -2.0
-margin_right = 1018.0
-margin_bottom = 600.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
