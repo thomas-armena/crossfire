@@ -54,7 +54,7 @@ position = Vector2( 988.28, 1842.48 )
 scale = Vector2( 150, 100 )
 
 [node name="Wall2" parent="." instance=ExtResource( 9 )]
-position = Vector2( -998.464, 892.091 )
+position = Vector2( -998.199, 892.091 )
 rotation = 1.5708
 scale = Vector2( 150, 100 )
 
@@ -69,6 +69,16 @@ player1_path = NodePath("../Player1")
 player2_path = NodePath("../Player2")
 
 [node name="Pooplayer" type="CanvasLayer" parent="Camera"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera/Pooplayer"]
+margin_left = 5.0
+margin_top = 8.0
+margin_right = 208.0
+margin_bottom = 120.0
+color = Color( 0, 0, 0, 0.517647 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="UI" parent="Camera/Pooplayer" instance=ExtResource( 5 )]
 position = Vector2( 25, 25 )
