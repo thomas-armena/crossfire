@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Players/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Enemies/EnemyBasic.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Interface/Score/Score.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Camera/Camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Grid/Grid.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Scanline/Scanline.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D"]
 
@@ -41,10 +42,14 @@ target_player_path = NodePath("../Player1")
 [node name="EnemyChase" parent="." instance=ExtResource( 3 )]
 target_player = NodePath("../Player1")
 
-[node name="UI" parent="." instance=ExtResource( 5 )]
-position = Vector2( 25, 25 )
-
 [node name="Camera" parent="." instance=ExtResource( 6 )]
 script = ExtResource( 4 )
 player1_path = NodePath("../Player1")
 player2_path = NodePath("../Player2")
+
+[node name="Pooplayer" type="CanvasLayer" parent="Camera"]
+
+[node name="UI" parent="Camera/Pooplayer" instance=ExtResource( 5 )]
+position = Vector2( 25, 25 )
+
+[node name="Scanline" parent="Camera" instance=ExtResource( 8 )]
