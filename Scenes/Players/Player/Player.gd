@@ -9,6 +9,8 @@ export var is_mouse_controlled := true
 export var shoot_action := "p1_shoot"
 export (NodePath) var target_player_path
 
+export (bool) var god_mode = false
+
 var speed = 500
 var BULLET = preload("res://Scenes/Bullet/Bullet.tscn")
 
@@ -69,7 +71,7 @@ func shoot():
 
 func handle_damage(amount):
 	game_state.health = max(0, game_state.health - amount)
-	if game_state.health <= 0: 
+	if game_state.health <= 0 and !god_mode: 
 		get_tree().change_scene("res://Scenes/GameOver/GameOver.tscn")
 
 func handle_death():
