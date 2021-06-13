@@ -20,6 +20,7 @@ script = ExtResource( 2 )
 
 [node name="Player2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 796.63, 272.78 )
+collision_mask = 3
 color = Color( 0, 0.109804, 1, 1 )
 move_right_action = "p2_move_right"
 move_left_action = "p2_move_left"
@@ -64,28 +65,20 @@ __meta__ = {
 }
 
 [node name="Wall" parent="." instance=ExtResource( 6 )]
-position = Vector2( 4.72203, 221.55 )
-scale = Vector2( 1, 60 )
-collision_layer = 3
-collision_mask = 3
+position = Vector2( -0.941177, 314.05 )
+scale = Vector2( 1, 30 )
 
 [node name="Wall2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1015, 189.478 )
 scale = Vector2( 1, 60 )
-collision_layer = 3
-collision_mask = 3
 
 [node name="Wall3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 519.661, 7.73453 )
 rotation = 1.5708
 scale = Vector2( 1, 60 )
-collision_layer = 3
-collision_mask = 3
 
 [node name="Wall4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 510.752, 593.946 )
 rotation = 1.5708
 scale = Vector2( 1, 60 )
-collision_layer = 3
-collision_mask = 3
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
