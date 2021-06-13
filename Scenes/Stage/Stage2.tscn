@@ -144,9 +144,10 @@ player2_path = NodePath("../Player2")
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
 material = SubResource( 2 )
-margin_left = -2.0
-margin_right = 1018.0
-margin_bottom = 600.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Crossfire"
-run/main_scene="res://Scenes/Players/Player/Player.tscn"
+run/main_scene="res://Scenes/Stage/Stage2.tscn"
 config/icon="res://icon.png"
 
 [input]
