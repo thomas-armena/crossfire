@@ -19,6 +19,7 @@ onready var face = get_node("Face")
 onready var left_eye = get_node("Face/LeftEye")
 onready var right_eye = get_node("Face/RightEye")
 onready var target_player = get_node(target_player_path)
+onready var game_state = get_node("/root/GameState")
 
 func _ready():
 	var circle = get_node("Circle")
@@ -41,6 +42,7 @@ func move():
 	
 
 func _process(delta):
+	if target_player == null: return
 	sway_face()
 	set_look_direction()
 	if Input.is_action_just_pressed(shoot_action):
@@ -61,7 +63,13 @@ func shoot():
 	var bullet = BULLET.instance()
 	var vector = (target_player.global_position - global_position).normalized()
 	bullet.direction = vector.angle()
-
 	bullet.position = position + vector*(32 + 16)
 	get_tree().get_root().add_child(bullet)
+	bullet.set_color(color)
 	entity.impulse(position-vector, 5000)
+
+func handle_damage(amount):
+	game_state.health = max(0, game_state.health - amount)
+
+func handle_death():
+	pass

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Bullet/Trail/Trail.gd" type="Script" id=1]
+
+[node name="Trail" type="Line2D"]
+width = 24.0
+default_color = Color( 0.4, 0.501961, 1, 1 )
+script = ExtResource( 1 )

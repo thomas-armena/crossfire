@@ -5,6 +5,10 @@ export var radius = 32
 
 func _ready():
 	pass # Replace with function body.
+	
+func set_color(color):
+	self.color = color
+	_draw()
 
 func _draw():
 	var center = Vector2(0, 0)
