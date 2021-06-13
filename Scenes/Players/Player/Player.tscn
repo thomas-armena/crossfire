@@ -45,3 +45,7 @@ linear_accel_random = 1.0
 scale_amount = 3.0
 scale_amount_random = 1.0
 script = ExtResource( 5 )
+
+[node name="HitCooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="HitCooldown" to="." method="_on_HitCooldown_timeout"]

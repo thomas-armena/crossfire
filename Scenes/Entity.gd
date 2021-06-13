@@ -5,6 +5,9 @@ onready var game_state = get_node("/root/GameState")
 export (bool) var auto_rotate = true
 export (bool) var wall = false
 
+enum TYPE { player, enemy, wall }
+export (TYPE) var type = TYPE.enemy
+
 export (float) var hp = 50
 export (float) var dmg = 1
 
@@ -36,7 +39,9 @@ func damage(amount):
 func _physics_process(delta):
 	if wall: return
 	velocity += acceleration * delta
-	get_parent().move(velocity * delta)
+	var collision = get_parent().move_and_collide(velocity * delta)
+	if collision && get_parent().has_method("handle_collision"):
+		get_parent().handle_collision(collision)
 	if (auto_rotate):
 		get_parent().rotation = velocity.angle()
 	

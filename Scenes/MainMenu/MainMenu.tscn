@@ -81,4 +81,5 @@ scale = Vector2( 1, 60 )
 position = Vector2( 510.752, 593.946 )
 rotation = 1.5708
 scale = Vector2( 1, 60 )
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
