@@ -16,12 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Crossfire"
-run/main_scene="res://Scenes/Stage/Stage.tscn"
+run/main_scene="res://Scenes/Players/Player/Player.tscn"
 config/icon="res://icon.png"
-
-[global]
-
-alia=false
 
 [input]
 
@@ -84,4 +80,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0.0745098, 0.0745098, 0.109804, 1 )
 environment/default_environment="res://default_env.tres"
