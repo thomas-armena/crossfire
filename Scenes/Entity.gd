@@ -14,6 +14,13 @@ export (Vector2) var friction = Vector2(0.8, 0.8)
 func impulse(target_pos, strength):
 	var direction = target_pos - get_parent().position
 	acceleration += direction.normalized() * strength
+	
+func impulse_by_angle(angle, strength):
+	var direction = Vector2(cos(angle), sin(angle))
+	acceleration += direction.normalized() * strength
+	
+func damage(amount):
+	hp = max(0, hp-amount)
 
 func _physics_process(delta):
 	velocity += acceleration * delta
@@ -23,3 +30,6 @@ func _physics_process(delta):
 	
 	acceleration *= damping
 	velocity *= friction
+	
+func _process(delta):
+	if hp <= 0: get_parent().queue_free()

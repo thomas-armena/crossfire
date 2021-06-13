@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/Enemies/EnemyDash.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Enemies/EnemyChase.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Entity.tscn" type="PackedScene" id=2]
 
-[node name="EnemyDash" type="KinematicBody2D"]
+[node name="EnemyChase" type="KinematicBody2D"]
 collision_layer = 4
 script = ExtResource( 1 )
-target_player = NodePath("Entity")
 
 [node name="Entity" parent="." instance=ExtResource( 2 )]
 auto_rotate = false

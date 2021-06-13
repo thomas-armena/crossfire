@@ -47,15 +47,15 @@ func sway_face():
 	face.rotation = cos(face_sway_counter)/5
 	
 func set_look_direction():
-	var vector = -(global_position - target_player.global_position).normalized()
+	var vector = (target_player.global_position - global_position).normalized()
 	left_eye.target_look_direction = vector.angle()
 	right_eye.target_look_direction = vector.angle()
 		
 func shoot():
 	var bullet = BULLET.instance()
-	var vector = (global_position - target_player.global_position).normalized()
-	bullet.direction = PI+vector.angle()
-	entity.impulse(vector+position, 5000)
+	var vector = (target_player.global_position - global_position).normalized()
+	bullet.direction = vector.angle()
 
-	bullet.position = position
+	bullet.position = position + vector*(32 + 16)
 	get_tree().get_root().add_child(bullet)
+	entity.impulse(position-vector, 5000)
