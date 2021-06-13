@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Enemies/Enemy_Basic.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Entity.tscn" type="PackedScene" id=2]
+
+[node name="Enemy_Basic" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Entity" parent="." instance=ExtResource( 2 )]
