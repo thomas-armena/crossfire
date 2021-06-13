@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Shapes/Circle/Circle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Shapes/Eye/Eye.gd" type="Script" id=2]
+
+[node name="Eye" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Circle" parent="." instance=ExtResource( 1 )]
+color = Color( 1, 1, 1, 1 )
+radius = 14
+
+[node name="Iris" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4, 0 )
+radius = 8
