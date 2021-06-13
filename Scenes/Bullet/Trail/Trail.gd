@@ -11,10 +11,11 @@ func set_color(new_color):
 	gradient.set_color(1, new_color)
 
 func _process(delta):
+	
 	if bullet_is_dead:
 		clear_point()
 		return
-	if bullet != null: add_bullet_point()
+	if is_instance_valid(bullet): add_bullet_point()
 
 func clear_point():
 	remove_point(0)
