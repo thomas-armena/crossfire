@@ -10,13 +10,12 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
 
 config/name="Crossfire"
-run/main_scene="res://Scenes/Stage/Stage2.tscn"
+run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
