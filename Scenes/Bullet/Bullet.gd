@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var BULLET_TRAIL = preload("res://Scenes/Bullet/Trail/Trail.tscn")
+var BULLET_IMPACT = preload("res://Scenes/Bullet/Impact/Impact.tscn")
 
 export var speed = 10
 export var direction = 0
@@ -15,6 +16,7 @@ func _ready():
 	get_tree().get_current_scene().add_child(bullet_trail)
 	
 func set_color(new_color):
+	color = new_color
 	circle.set_color(new_color)
 	bullet_trail.set_color(new_color)
 	
@@ -35,4 +37,8 @@ func _on_DeathTimer_timeout():
 	
 func die():
 	bullet_trail.stop()
+	var impact = BULLET_IMPACT.instance()
+	get_tree().get_current_scene().add_child(impact)
+	impact.set_color(color)
+	impact.position = position
 	queue_free()
