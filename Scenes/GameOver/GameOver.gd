@@ -1,16 +1,12 @@
 extends Node2D
 
+onready var game_state = get_node("/root/GameState")
+onready var score_label = get_node("CanvasLayer/ScoreLabel")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	score_label.text = "Score: " + String(game_state.score)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_ToolButton_pressed():
+	game_state.score = 0
+	game_state.health = 100
+	get_tree().change_scene("res://Scenes/Stage/Stage2.tscn")

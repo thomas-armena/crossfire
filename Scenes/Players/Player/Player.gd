@@ -40,7 +40,6 @@ func move():
 	move_vector = move_vector.normalized()
 	entity.impulse(move_vector+position, speed)
 	
-
 func _process(delta):
 	if target_player == null: return
 	sway_face()
@@ -70,6 +69,8 @@ func shoot():
 
 func handle_damage(amount):
 	game_state.health = max(0, game_state.health - amount)
+	if game_state.health <= 0: 
+		get_tree().change_scene("res://Scenes/GameOver/GameOver.tscn")
 
 func handle_death():
 	pass
