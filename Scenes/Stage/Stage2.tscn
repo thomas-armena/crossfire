@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Players/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Enemies/EnemyBasic.tscn" type="PackedScene" id=2]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="EnemyBasic3" parent="." instance=ExtResource( 2 )]
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 290.279, 294.611 )
@@ -14,3 +17,9 @@ move_right_action = "p2_move_right"
 move_left_action = "p2_move_left"
 move_down_action = "p2_move_down"
 move_up_action = "p2_move_up"
+
+[node name="EnemyBasic" parent="." instance=ExtResource( 2 )]
+
+[node name="EnemyBasic2" parent="." instance=ExtResource( 2 )]
+
+[node name="EnemyBasic4" parent="." instance=ExtResource( 2 )]
