@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Players/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Enemies/EnemyBasic.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Camera/Camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Grid/Grid.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Scanline/Scanline.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Wall/Wall.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
 
@@ -23,12 +24,14 @@ cell_height = 256.0
 [node name="EnemyBasic3" parent="." instance=ExtResource( 2 )]
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 290.279, 294.611 )
+position = Vector2( 203.403, 436.579 )
+collision_mask = 3
 is_mouse_controlled = false
 target_player_path = NodePath("../Player2")
 
 [node name="Player2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 623.882, 305.442 )
+position = Vector2( 1386.03, 440.498 )
+collision_mask = 3
 color = Color( 0, 0.0862745, 1, 1 )
 move_right_action = "p2_move_right"
 move_left_action = "p2_move_left"
@@ -41,6 +44,24 @@ target_player_path = NodePath("../Player1")
 
 [node name="EnemyChase" parent="." instance=ExtResource( 3 )]
 target_player = NodePath("../Player1")
+
+[node name="Wall" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1180.83, -1008.02 )
+scale = Vector2( 200, 100 )
+
+[node name="Wall3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 988.28, 1842.48 )
+scale = Vector2( 150, 100 )
+
+[node name="Wall2" parent="." instance=ExtResource( 9 )]
+position = Vector2( -998.464, 892.091 )
+rotation = 1.5708
+scale = Vector2( 150, 100 )
+
+[node name="Wall4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2558.05, 1364.03 )
+rotation = 1.5708
+scale = Vector2( 150, 100 )
 
 [node name="Camera" parent="." instance=ExtResource( 6 )]
 script = ExtResource( 4 )
