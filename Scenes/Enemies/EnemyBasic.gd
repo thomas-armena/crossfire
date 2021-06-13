@@ -20,10 +20,6 @@ func update_behaviour(delta):
 		target = Vector2(rng.randf_range(0, view_width), rng.randf_range(0, view_height))
 		
 	entity.impulse(target, speed)
-	
-func _input(event):
-	if (event.is_pressed() and event.button_index == BUTTON_LEFT):
-		entity.impulse(get_global_mouse_position(), 10000)
-		
+
 func _physics_process(delta):
 	update_behaviour(delta)
