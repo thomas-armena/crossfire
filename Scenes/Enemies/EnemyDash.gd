@@ -5,6 +5,7 @@ export (NodePath) var target_player;
 
 onready var entity = get_node("Entity")
 onready var target = get_node(target_player)
+onready var type = "enemy"
 
 export (float) var speed = 30000 
 export (float) var dash_time = 2

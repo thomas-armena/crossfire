@@ -3,6 +3,7 @@ extends KinematicBody2D
 onready var entity = get_node("Entity")
 onready var view_width = get_viewport_rect().size.x
 onready var view_height = get_viewport_rect().size.y
+onready var type = "enemy"
 
 var rng = RandomNumberGenerator.new()
 var target = Vector2()

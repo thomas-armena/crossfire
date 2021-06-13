@@ -28,7 +28,6 @@ func _physics_process(delta):
 	
 func handle_collision(collision):
 	die()
-	
 	collision.collider.entity.impulse_by_angle(direction,10000)
 	collision.collider.entity.damage(20)
 
