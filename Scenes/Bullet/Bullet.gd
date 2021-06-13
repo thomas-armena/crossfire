@@ -12,7 +12,7 @@ onready var circle = get_node("Circle")
 
 func _ready():
 	bullet_trail.bullet = self
-	get_tree().get_root().add_child(bullet_trail)
+	get_tree().get_current_scene().add_child(bullet_trail)
 	
 func set_color(new_color):
 	circle.set_color(new_color)
