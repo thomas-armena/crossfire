@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Players/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Enemies/EnemyBasic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Enemies/EnemyDash.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/CameraController.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Interface/Score/Score.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Shader" id=1]
 code = "/*
@@ -142,6 +143,9 @@ player1_path = NodePath("../Player1")
 player2_path = NodePath("../Player2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="UI" parent="Camera2D/CanvasLayer" instance=ExtResource( 5 )]
+position = Vector2( 25, 25 )
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
 material = SubResource( 2 )
