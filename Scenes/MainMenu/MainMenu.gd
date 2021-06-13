@@ -1,17 +1,14 @@
 extends Node2D
 
+onready var game_state = get_node("/root/GameState")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass 
 
 func _process(delta):
-	if Input.is_key_pressed(KEY_SPACE):
+	if Input.is_key_pressed(KEY_ENTER):
+		game_state.score = 0
+		game_state.health = 100
 		get_tree().change_scene("res://Scenes/Stage/Stage2.tscn")
 
 

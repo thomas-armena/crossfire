@@ -1,19 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/GameOver/GameOver.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/Nunito-Bold.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Scenes/Camera/Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/Rajdhani-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/Scanline/Scanline.tscn" type="PackedScene" id=3]
 
-[sub_resource type="DynamicFont" id=1]
-size = 40
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 24
-font_data = ExtResource( 2 )
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/Rajdhani-Bold.ttf"
 
 [sub_resource type="DynamicFont" id=2]
-size = 24
+size = 64
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
 font_data = ExtResource( 2 )
 
 [node name="GameOver" type="Node2D"]
@@ -22,38 +25,45 @@ script = ExtResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-margin_left = 432.0
-margin_top = 200.0
-margin_right = 641.0
-margin_bottom = 256.0
-custom_fonts/font = SubResource( 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -142.0
+margin_top = 67.4646
+margin_right = 142.0
+margin_bottom = 67.4646
+custom_fonts/font = SubResource( 2 )
 text = "Game Over"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer"]
-margin_left = 496.0
-margin_top = 288.0
-margin_right = 585.0
-margin_bottom = 322.0
+anchor_left = 0.499225
+anchor_right = 0.499225
+anchor_bottom = 1.0
+margin_left = -79.7937
+margin_top = 192.869
+margin_right = 78.2063
+margin_bottom = 192.869
 custom_fonts/font = SubResource( 3 )
 text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Camera" parent="CanvasLayer" instance=ExtResource( 3 )]
-
-[node name="ToolButton" type="ToolButton" parent="CanvasLayer"]
-margin_left = 448.0
-margin_top = 352.0
-margin_right = 616.0
-margin_bottom = 394.0
-custom_fonts/font = SubResource( 2 )
-text = "> Play Again"
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -255.5
+margin_top = 338.91
+margin_right = 255.5
+margin_bottom = 338.91
+custom_fonts/font = SubResource( 4 )
+text = "Press ENTER to play again"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="CanvasLayer/ToolButton" to="." method="_on_ToolButton_pressed"]
+[node name="CanvasLayer2" parent="." instance=ExtResource( 3 )]
