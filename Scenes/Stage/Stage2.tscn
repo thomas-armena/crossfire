@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Players/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sounds/snd_gamesong.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scenes/Camera/CameraController.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Interface/Score/Score.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Camera/Camera.tscn" type="PackedScene" id=6]
@@ -108,3 +109,8 @@ position = Vector2( 817.415, 346.482 )
 
 [node name="SpawnPoint9" type="Position2D" parent="EnemySpawner"]
 position = Vector2( 954.594, 216.375 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -35.32
+autoplay = true

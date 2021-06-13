@@ -13,7 +13,6 @@ onready var circle = get_node("Circle")
 onready var shoot_impact_sound = get_node("ShootImpact")
 
 func _ready():
-	print("BULLET")
 	bullet_trail.bullet = self
 	get_tree().get_current_scene().add_child(bullet_trail)
 

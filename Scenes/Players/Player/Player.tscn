@@ -51,6 +51,6 @@ script = ExtResource( 5 )
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
-volume_db = 1.0
+volume_db = -37.369
 
 [connection signal="timeout" from="HitCooldown" to="." method="_on_HitCooldown_timeout"]

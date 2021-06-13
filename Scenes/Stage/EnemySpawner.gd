@@ -17,7 +17,6 @@ func _ready():
 	add_child(timer)
 	timer.connect("timeout", self, "on_timeout")
 	timer.start(2)
-	print(player1_path)
 
 func choose_player():
 	if (rng.randi()%2):
